@@ -4,7 +4,7 @@
 sleep 15
 
 # Change this path to personal preference
-cd /home/mbell/.xkcd
+cd /home/NAME/.xkcd
 ls | grep png | xargs rm
 rm index.html*
 wget http://xkcd.com/info.0.json
