@@ -1,0 +1,10 @@
+# How to use:
+#
+# Just place a lock.png in your home folder to overlay whatever you want 
+ 
+#!/bin/bash
+scrot 'tmp.png' -e 'convert -blur 0x7 $f ~/lockbg.png'
+convert -font Monaco -pointsize 36 -gravity center -composite ~/lockbg.png ~/.xkcd/xkcd.png ~/lockfinal.png
+#convert -font Monaco -pointsize 36 -gravity center -composite ~/lockbg.png ~/lock.png ~/lockfinal.png
+i3lock -i ~/lockfinal.png
+rm ~/lockfinal.png ~/lockbg.png ~/tmp.png

@@ -1,0 +1,15 @@
+#! /bin/sh
+
+# Sleep is so mobile devices can get a wifi connection
+sleep 15
+
+# Change this path to personal preference
+cd /home/mbell/.xkcd
+ls | grep png | xargs rm
+rm index.html*
+wget http://xkcd.com/info.0.json
+grep -o http\:.*\.png info.0.json | xargs wget 
+grep -o alt[^~]*\" info.0.json > alt
+mv -T $(ls ~/.xkcd | grep png) ~/.xkcd/xkcd.png
+rm info.0.json
+exit

@@ -1,0 +1,19 @@
+background no
+use_xft yes
+xftfont			"Tewi:style=Regular":size=10
+update_interval 	1
+maximum_width		1280
+minimum_size		1280 20
+background		false
+mpd_host		localhost
+mpd_port		6600
+out_to_console		yes
+short_units		on
+if_up_strictness	yes
+
+
+TEXT
+#Wireless: ${wireless_essid wlp1s0} // \
+Charge: $battery_percent% // \
+$if_mpd_playing\#nowplaying: ${mpd_artist 30} - ${mpd_title 30} $mpd_elapsed/$mpd_length // ${endif} \
+${time %d/%m %H:%M} \
