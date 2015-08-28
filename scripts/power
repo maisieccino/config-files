@@ -1,0 +1,20 @@
+#!/bin/sh
+
+res=$(rofi -p "> " -dmenu < ~/scripts/powermenu)
+
+if [ $res = "logout" ]; then
+	i3-msg exit
+fi
+if [ $res = "restart" ]; then
+	systemctl reboot
+fi
+if [ $res = "shutdown" ]; then
+	systemctl poweroff -i
+fi
+if [ $res = "suspend" ]; then
+	lock && systemctl suspend
+fi
+if [ $res = "lock" ]; then
+	lock
+fi
+exit 0
