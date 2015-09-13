@@ -4,7 +4,8 @@
 CD="$HOME/.Xresources"
 
 # Fetch the Colors
-BG=$(cat ${CD} | grep -i background | tail -c 8)
+#BG=$(cat ${CD} | grep -i background | tail -c 8)
+BG="#0C1115"
 FG=$(cat ${CD} | grep -i foreground | tail -c 8)
 
 BLACK=$(cat ${CD} | grep -i color8 | tail -c 8)
@@ -67,6 +68,11 @@ music() {
 	echo "%{F$GREEN} ${ip}   ${ping}"
 }
 
+mail() {
+	mailcount=$(~/scripts/getmail.sh)
+	echo "%{F$BLUE} ${mailcount}"
+}
+
 ram(){
 	ram=$(free -h | awk '/\-\/+/ {print $3}')
 	echo "%{F$YELLOW} ${ram}"
@@ -95,7 +101,7 @@ pow(){
 }
 
 while :; do 	
-	 echo "   $(ws)  %{A1:$TMUS:}%{A3:$NMUS:}$(music)%{A}%{A}%{c}$(cpu)   %{r}$(net)  %{A:$VOLT:}%{A4:$VOLU:}%{A5:$VOLD:}$(vol) %{A}%{A}%{A}  $(clock) %{A:$POW:}   %{A} "
+	echo "   $(ws)  %{A1:$TMUS:}%{A3:$NMUS:}$(music)%{A}%{A}%{c}$(cpu)   %{r}$(mail) $(net)  %{A:$VOLT:}%{A4:$VOLU:}%{A5:$VOLD:}$(vol) %{A}%{A}%{A}  $(clock) %{A:$POW:}   %{A} "
 	 sleep .5
 done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT3" -f "$FONT1" -B "$BG" -F "$FG" -p -d  | \
     while :; do read line; eval $line; done &
