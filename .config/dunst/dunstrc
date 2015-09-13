@@ -125,8 +125,8 @@
     browser = /usr/bin/firefox -new-tab
 
 [frame]
-    width = 0
-    color = "#021b21"
+    width = 2
+    color = "#77c3a9"
 
 [shortcuts]
     # shortcuts are specified as [modifier+][modifier+]...key
@@ -151,12 +151,12 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the '#' and following  would be interpreted as a comment.
     background = "#032c36"
-    foreground = "#e8dfd6"
+    foreground = "#427966"
     timeout = 10
 
 [urgency_normal]
-    background = "#8a7a63"
-    foreground = "#021b21"
+    background = "#0c1115"
+    foreground = "#77c3a9"
     timeout = 10
 
 [urgency_critical]
